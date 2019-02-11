@@ -11,10 +11,10 @@ class MainContainer extends Component{
             gifs: []
         }
     }
-    getGifs = async (searchTerm)=>{
+    getGifs = async (searchTerm, number)=>{
         try{
             console.log('gettin those gifs');
-            const apiResponse = await fetch(`https://api.giphy.com/v1/gifs/search?api_key=${API_KEY}&q=${searchTerm}&limit=25`);
+            const apiResponse = await fetch(`https://api.giphy.com/v1/gifs/search?api_key=${API_KEY}&q=${searchTerm}&limit=${number}`);
             if(!apiResponse.ok){
                 throw Error(apiResponse.statusText);
             }
